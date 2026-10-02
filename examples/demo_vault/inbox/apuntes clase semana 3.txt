@@ -1,0 +1,10 @@
+apuntes clase 3 (desordenado, pasar a limpio)
+
+el profe dijo que la LTD no es solo "lo contrario" de LTP, usa otras vias. calcineurina -> desfosforila inhibidor-1 -> PP1 activa -> saca receptores AMPA de la sinapsis.
+revisar: la LTD dependiente de mGluR es independiente de NMDAR?? preguntar.
+
+dato suelto: en CA1 la LTP necesita que el postsinaptico este despolarizado, si pones la celula en voltage clamp a -70 mV mientras estimulas NO hay LTP. Esto prueba que es postsinaptico el requisito de despolarizacion (Malinow? Gustafsson?). buscar cita.
+
+TODO leer: https://www.ncbi.nlm.nih.gov/books/NBK10799/ (Neuroscience, Purves, cap sobre plasticidad)
+
+pregunta mia: si el escalamiento es multiplicativo, entonces la LTP previa se conserva en proporcion? o se "aplana"? idea: se conserva el orden pero no las diferencias absolutas.

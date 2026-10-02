@@ -1,0 +1,10 @@
+# Only GROQ_API_KEY is needed. Use until you have a paid Gemini plan:
+#   research ask "..." --config config/groq-only.yaml
+llm:
+  router:      { provider: groq, model: llama-3.1-8b-instant,    temperature: 0.0 }
+  agent:       { provider: groq, model: llama-3.3-70b-versatile, temperature: 0.2 }
+  synthesizer: { provider: groq, model: llama-3.3-70b-versatile, temperature: 0.3 }
+  judge:       { provider: groq, model: llama-3.3-70b-versatile, temperature: 0.0 }
+
+budget:
+  evidence_tokens_total: 4000   # keep prompts small for Groq free-tier tokens-per-minute limits

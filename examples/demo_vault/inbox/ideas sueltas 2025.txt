@@ -1,0 +1,6 @@
+IDEAS SUELTAS
+
+- Si el escalamiento sinaptico opera en horas-dias y la LTP en minutos, el sistema tiene dos relojes. Quizas el sueno sincroniza ambos? (Tononi: hipotesis de homeostasis sinaptica, SHY)
+- Neuromorphic: implementar STDP en hardware memristivo, el timing pre/post se mapea a pulsos de voltaje solapados.
+- Interesante: los astrocitos liberan D-serina que es coagonista del NMDAR. Sin D-serina no hay LTP en algunas sinapsis. Revisar.
+- Comparar BCM con la regla de Oja (normalizacion de pesos) - ambas estabilizan Hebb pero con filosofias distintas.

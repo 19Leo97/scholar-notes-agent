@@ -1,0 +1,64 @@
+{
+  "suite": "retrieval",
+  "timestamp": "20261001-180559",
+  "config": {
+    "llm": {
+      "router": "groq:llama-3.1-8b-instant",
+      "agent": "groq:openai/gpt-oss-120b",
+      "synthesizer": "gemini:gemini-2.5-flash",
+      "judge": "groq:llama-3.3-70b-versatile"
+    },
+    "embeddings": "ollama:nomic-embed-text",
+    "reranker": "none",
+    "retrieval": {
+      "candidates": 30,
+      "top_k": 8,
+      "mmr_lambda": 0.7,
+      "graph_expand": true,
+      "graph_neighbours": 2
+    },
+    "chunking": {
+      "max_tokens": 450,
+      "min_tokens": 40
+    },
+    "budget": {
+      "max_cost_usd": 0.05,
+      "max_input_tokens": 60000,
+      "max_tool_calls": 8,
+      "max_iterations": 5,
+      "evidence_tokens_each": 350,
+      "evidence_tokens_total": 6000
+    },
+    "prompts_hash": "7af0f61676"
+  },
+  "summary": {
+    "queries": 188,
+    "corpus_docs": 5183,
+    "embedder": "ollama:nomic-embed-text",
+    "cross_lingual": false,
+    "results": {
+      "bm25 (lexical)": {
+        "ndcg@10": 0.8208119933691629,
+        "recall@10": 0.9328014184397162,
+        "recall@5": 0.8798758865248228,
+        "mrr@10": 0.7892709388720028,
+        "ms_per_query": 214.70227765964043
+      },
+      "dense": {
+        "ndcg@10": 0.8436652769299114,
+        "recall@10": 0.9664893617021276,
+        "recall@5": 0.8991134751773051,
+        "mrr@10": 0.8163542722053362,
+        "ms_per_query": 88.57461755255923
+      },
+      "hybrid (RRF)": {
+        "ndcg@10": 0.8674886120879979,
+        "recall@10": 0.975531914893617,
+        "recall@5": 0.9195035460992909,
+        "mrr@10": 0.8399147247551503,
+        "ms_per_query": 317.22672872436965
+      }
+    }
+  },
+  "records": []
+}

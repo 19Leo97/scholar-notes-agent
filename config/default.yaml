@@ -1,0 +1,62 @@
+# Default configuration. Override with --config path/to/file.yaml or SCHOLAR_* env vars.
+paths:
+  notes_dirs: []              # e.g. ["C:/Users/me/vault"]; can also be passed to `research ingest`
+  index_dir: .index
+  cache_dir: .cache
+  sqlite: .index/catalog.sqlite
+
+# One entry per role. provider: groq | gemini | ollama
+llm:
+  router:      { provider: groq,   model: llama-3.1-8b-instant, temperature: 0.0 }
+  agent:       { provider: groq,   model: openai/gpt-oss-120b,  temperature: 0.2 }
+  synthesizer: { provider: gemini, model: gemini-2.5-flash,     temperature: 0.3 }
+  judge:       { provider: groq,   model: llama-3.3-70b-versatile, temperature: 0.0 }
+
+embeddings:
+  provider: ollama            # ollama | fastembed | hash (offline, tests only)
+  model: bge-m3               # `ollama pull bge-m3`; multilingual, good ES<->EN
+  batch_size: 32
+
+reranker:
+  provider: none              # none | fastembed
+  model: jinaai/jina-reranker-v2-base-multilingual
+
+chunking:
+  max_tokens: 450
+  min_tokens: 40
+
+retrieval:
+  candidates: 30              # per retriever, before fusion
+  top_k: 8                    # evidence chunks handed to the agent
+  mmr_lambda: 0.7
+  graph_expand: true          # add 1-hop wikilink neighbours
+  graph_neighbours: 2
+
+# Which tool groups each mode may use
+modes:
+  notes:      { groups: [notes] }
+  literature: { groups: [literature, web] }
+  hybrid:     { groups: [notes, literature, web] }
+
+budget:                       # per query
+  max_cost_usd: 0.05
+  max_input_tokens: 60000
+  max_tool_calls: 8
+  max_iterations: 5
+  evidence_tokens_each: 350   # snippet cap per evidence item
+  evidence_tokens_total: 6000 # context cap handed to the synthesizer
+
+privacy:
+  gemini_paid_tier: false     # must be true to use Gemini (env GEMINI_PAID_TIER)
+  outbound_ngram: 8           # block external queries sharing >= this many words with your notes
+
+literature:
+  providers: [openalex, europepmc, arxiv]   # add semantic_scholar (works best with an API key)
+  per_provider: 8
+  http_cache_days: 7
+  verify_dois: true                         # Crossref / DataCite check for every cited DOI
+
+web:
+  provider: auto                            # auto = Tavily if TAVILY_API_KEY else DuckDuckGo
+  results: 5
+  fetch_tokens: 1200

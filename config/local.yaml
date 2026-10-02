@@ -1,0 +1,17 @@
+# 100 % local profile: no API keys, nothing leaves your machine (except literature/web searches in
+# non-`notes` modes). Quality is lower than hosted models; use `--mode notes` for a fully offline run.
+#   research ask "..." --mode notes --config config/local.yaml
+llm:
+  router:      { provider: ollama, model: llama3.2:3b, temperature: 0.0, num_ctx: 8192 }
+  agent:       { provider: ollama, model: llama3.1,    temperature: 0.2, num_ctx: 8192 }
+  synthesizer: { provider: ollama, model: llama3.1,    temperature: 0.3, num_ctx: 8192 }
+  judge:       { provider: ollama, model: llama3.1,    temperature: 0.0, num_ctx: 8192 }
+
+embeddings:
+  provider: ollama
+  model: nomic-embed-text      # small and fast on CPU; for Spanish-heavy notes prefer bge-m3 if you can wait
+
+budget:
+  max_tool_calls: 4
+  evidence_tokens_each: 250    # keep prompts inside the local context window
+  evidence_tokens_total: 3000
