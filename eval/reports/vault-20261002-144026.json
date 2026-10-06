@@ -1,0 +1,177 @@
+{
+  "suite": "vault",
+  "timestamp": "20261002-144026",
+  "config": {
+    "llm": {
+      "router": "groq:openai/gpt-oss-20b",
+      "agent": "groq:openai/gpt-oss-120b",
+      "synthesizer": "groq:openai/gpt-oss-120b",
+      "judge": "groq:openai/gpt-oss-20b"
+    },
+    "embeddings": "ollama:bge-m3",
+    "reranker": "none",
+    "retrieval": {
+      "candidates": 30,
+      "top_k": 8,
+      "mmr_lambda": 0.7,
+      "graph_expand": true,
+      "graph_neighbours": 2
+    },
+    "chunking": {
+      "max_tokens": 450,
+      "min_tokens": 40
+    },
+    "budget": {
+      "max_cost_usd": 0.05,
+      "max_input_tokens": 60000,
+      "max_tool_calls": 8,
+      "max_iterations": 5,
+      "evidence_tokens_each": 350,
+      "evidence_tokens_total": 4000
+    },
+    "prompts_hash": "4563d2a7ce"
+  },
+  "summary": {
+    "n": 4,
+    "judge_usd": 0.0,
+    "cost": {
+      "items": 6,
+      "errors": 2,
+      "usd_total": 0.01672365,
+      "usd_per_item": 0.0041809125,
+      "tokens_in_per_item": 12366.0,
+      "tokens_out_per_item": 3421.0,
+      "tool_calls_per_item": 2.25,
+      "latency_p50_s": 126.28465420001885,
+      "latency_p95_s": 188.71018920000643
+    }
+  },
+  "records": [
+    {
+      "id": "q01",
+      "type": "question",
+      "mode": "notes",
+      "cited": [
+        "plasticidad/CON — Receptor NMDA como detector de coincidencia.md"
+      ],
+      "usd": 0.0030541500000000003,
+      "tokens_in": 6211,
+      "tokens_out": 3116,
+      "tool_calls": 1,
+      "llm_calls": 5,
+      "external_calls": 0,
+      "claims_total": 3,
+      "claims_supported_raw": 3,
+      "removed_claims": 0,
+      "gold_recall": 1.0,
+      "keyword_hit": 0.5,
+      "expect_in_answer": null,
+      "verdict_correct": null,
+      "abstained": null,
+      "mode_compliant": true,
+      "kinds_ok": null,
+      "ia_labeled": true,
+      "faithfulness": 5,
+      "error": null,
+      "seconds": 11.02837020001607
+    },
+    {
+      "id": "q02",
+      "type": "question",
+      "mode": "notes",
+      "cited": [
+        "plasticidad/CON — LTP fase tardía.md",
+        "plasticidad/CON — LTP fase temprana.md"
+      ],
+      "usd": 0.0024063,
+      "tokens_in": 3932,
+      "tokens_out": 2859,
+      "tool_calls": 0,
+      "llm_calls": 3,
+      "external_calls": 0,
+      "claims_total": 9,
+      "claims_supported_raw": 9,
+      "removed_claims": 0,
+      "gold_recall": 1.0,
+      "keyword_hit": 1.0,
+      "expect_in_answer": null,
+      "verdict_correct": null,
+      "abstained": null,
+      "mode_compliant": true,
+      "kinds_ok": null,
+      "ia_labeled": true,
+      "faithfulness": 5,
+      "error": null,
+      "seconds": 28.399047499988228
+    },
+    {
+      "id": "q03",
+      "type": "question",
+      "mode": "notes",
+      "cited": [
+        "inbox/apuntes clase semana 3.txt",
+        "plasticidad/CON — LTD.md"
+      ],
+      "usd": 0.00679485,
+      "tokens_in": 22942,
+      "tokens_out": 4766,
+      "tool_calls": 4,
+      "llm_calls": 8,
+      "external_calls": 0,
+      "claims_total": 5,
+      "claims_supported_raw": 4,
+      "removed_claims": 1,
+      "gold_recall": 1.0,
+      "keyword_hit": 1.0,
+      "expect_in_answer": null,
+      "verdict_correct": null,
+      "abstained": null,
+      "mode_compliant": true,
+      "kinds_ok": null,
+      "ia_labeled": true,
+      "faithfulness": 3,
+      "error": null,
+      "seconds": 188.71018920000643
+    },
+    {
+      "id": "q04",
+      "type": "question",
+      "mode": "notes",
+      "cited": [
+        "papers/RES — [2] Bi y Poo 1998.md",
+        "plasticidad/CON — Receptor NMDA como detector de coincidencia.md",
+        "plasticidad/CON — Regla BCM y metaplasticidad.md",
+        "plasticidad/CON — Regla de Hebb.md",
+        "plasticidad/CON — STDP.md"
+      ],
+      "usd": 0.00446835,
+      "tokens_in": 16379,
+      "tokens_out": 2943,
+      "tool_calls": 4,
+      "llm_calls": 7,
+      "external_calls": 0,
+      "claims_total": 6,
+      "claims_supported_raw": 6,
+      "removed_claims": 0,
+      "gold_recall": 1.0,
+      "keyword_hit": 1.0,
+      "expect_in_answer": null,
+      "verdict_correct": null,
+      "abstained": null,
+      "mode_compliant": true,
+      "kinds_ok": null,
+      "ia_labeled": true,
+      "faithfulness": 5,
+      "error": null,
+      "seconds": 126.28465420001885
+    },
+    {
+      "error": "RateLimitError: Error code: 429 - {'error': {'message': 'Rate limit reached for model `openai/gpt-oss-120b` in organization `org_01m3yy06bhepevc59bx003qvge` service tier `on_demand` on tokens per minute (TPM): Limit ",
+      "seconds": 23.386906800005818
+    },
+    {
+      "error": "RateLimitError: Error code: 429 - {'error': {'message': 'Rate limit reached for model `openai/gpt-oss-120b` in organization `org_01m3yy06bhepevc59bx003qvge` service tier `on_demand` on tokens per minute (TPM): Limit ",
+      "seconds": 64.79913180001313
+    }
+  ]
+}

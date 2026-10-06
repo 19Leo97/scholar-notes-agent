@@ -152,16 +152,16 @@ def _truthy(value: str | None) -> bool:
 
 
 def load_settings(config_path: str | Path | None = None, overrides: dict | None = None) -> Settings:
-    """Load defaults, merge a user config file and overrides, apply env vars."""
+    """Load settings. Precedence (lowest to highest): defaults < user YAML < environment < explicit overrides."""
     load_dotenv(override=False)
     data = yaml.safe_load(DEFAULT_CONFIG.read_text(encoding="utf-8")) or {}
     if config_path:
         user = yaml.safe_load(Path(config_path).read_text(encoding="utf-8")) or {}
         data = _deep_merge(data, user)
+    if "GEMINI_PAID_TIER" in os.environ:
+        data.setdefault("privacy", {})["gemini_paid_tier"] = _truthy(os.environ["GEMINI_PAID_TIER"])
     if overrides:
         data = _deep_merge(data, overrides)
     pricing = yaml.safe_load(DEFAULT_PRICING.read_text(encoding="utf-8")) or {}
     data["pricing"] = pricing.get("models", {})
-    if "GEMINI_PAID_TIER" in os.environ:
-        data.setdefault("privacy", {})["gemini_paid_tier"] = _truthy(os.environ["GEMINI_PAID_TIER"])
     return Settings.model_validate(data)

@@ -46,6 +46,8 @@ Ideas del agente (no provienen de tus fuentes)
 Uso: 6,859 in / 942 out tokens · ~$0.0000 · 5 LLM calls · 1 tool calls
 ```
 
+**New here?** Open the interactive visual guide, [docs/guide.html](docs/guide.html) (download it and open it in a browser; no server needed). It explains the architecture, every file and function, the design decisions with their alternatives, and every evaluation run. Rebuild it with `python docs/build_guide.py`.
+
 ## Quickstart
 
 Requires Python ≥ 3.11 and, for local embeddings, [Ollama](https://ollama.com).

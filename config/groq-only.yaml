@@ -1,10 +1,12 @@
 # Only GROQ_API_KEY is needed. Use until you have a paid Gemini plan:
 #   research ask "..." --config config/groq-only.yaml
+# Models are the chat models listed by the Groq API for the author's account; check yours with
+# GET https://api.groq.com/openai/v1/models and edit if they differ.
 llm:
-  router:      { provider: groq, model: llama-3.1-8b-instant,    temperature: 0.0 }
-  agent:       { provider: groq, model: llama-3.3-70b-versatile, temperature: 0.2 }
-  synthesizer: { provider: groq, model: llama-3.3-70b-versatile, temperature: 0.3 }
-  judge:       { provider: groq, model: llama-3.3-70b-versatile, temperature: 0.0 }
+  router:      { provider: groq, model: openai/gpt-oss-20b,  temperature: 0.0 }
+  agent:       { provider: groq, model: openai/gpt-oss-120b, temperature: 0.2 }
+  synthesizer: { provider: groq, model: openai/gpt-oss-120b, temperature: 0.3 }
+  judge:       { provider: groq, model: openai/gpt-oss-20b,  temperature: 0.0 }
 
 budget:
   evidence_tokens_total: 4000   # keep prompts small for Groq free-tier tokens-per-minute limits
