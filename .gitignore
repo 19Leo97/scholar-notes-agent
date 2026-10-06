@@ -1,4 +1,5 @@
 # Private data: your notes, indexes and caches must never be committed
+PROMPTS/
 data/
 .index*/
 .cache/
